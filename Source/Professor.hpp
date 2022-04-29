@@ -1,3 +1,4 @@
+#pragma once
 #include "lib.hpp"
 
 const string all_subjects[]{
