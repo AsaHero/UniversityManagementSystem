@@ -1,6 +1,7 @@
 #pragma once
 #include "FileHandling.hpp"
-using namespace st
+using namespace std;
+
 void WelcomeAscii()
 {
     std::cout << R"(
