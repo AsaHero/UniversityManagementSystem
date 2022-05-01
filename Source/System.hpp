@@ -462,8 +462,8 @@ void createProf()
     string answer;
     do
     {
-        system("clear");
-        cout << "Select proffesor's subject:" << endl;
+        system("cls");
+        cout << "Select professor's subject:" << endl;
         prof->setSubject();
         do
         {
@@ -539,7 +539,7 @@ void updateProf()
             prof->resetSubject();
             do
             {
-                system("clear");
+                system("cls");
                 cout << "Select proffesor's subject:" << endl;
                 prof->setSubject();
                 do
@@ -640,7 +640,7 @@ int ChooseMenu()
         cout << "\nEnter your option: ";
         cin >> option;
 
-        system("clear");
+        system("cls");
 
     }while(option != 1 && option != 2 && option != 0);
 
@@ -652,7 +652,7 @@ void ProfessorMainMenu()
   int option;
     do
     {
-        system("clear");          
+        system("cls");          
         UMS();
     
         cout << "\n1. Adding new records.\n"
@@ -668,19 +668,23 @@ void ProfessorMainMenu()
         {
         case 1:
             createProf();
+            system("pause");
         break;
         case 2:
             allProfs();
+            system("pause");
         break;
         case 3:
             updateProf();
+            system("pause");
         break;
         case 4:
             findProf();
-            
+            system("pause");
         break;
         case 5:
             deleteProf();
+            system("pause");
         break;
         }
       
@@ -693,7 +697,7 @@ void StudentMainMenu()
     int option;
     do
     {
-        system("clear"); 
+        system("cls"); 
         UMS(); 
         cout << "\n1. Adding new records.\n"
             "2. List of records.\n"
@@ -708,18 +712,23 @@ void StudentMainMenu()
         {
         case 1:
             createStudent();
+            system("pause");
         break;
         case 2:
             allStudents();
+            system("pause");
         break;
         case 3:
             updateStudent();
+            system("pause");
         break;
         case 4:
             findStudent();
+            system("pause");
         break;
         case 5:
             deleteStudent();
+            system("pause");
         break;
         }    
     
@@ -734,7 +743,7 @@ void Run()
     int option = ChooseMenu();
     while(option != 0)
     {
-        system("clear");          
+        system("cls");          
         switch (option)
         {
         case 1:
@@ -744,7 +753,7 @@ void Run()
             StudentMainMenu();
         break;
         };
-        system("clear");
+        system("cls");
         option = ChooseMenu();
     }   
 }

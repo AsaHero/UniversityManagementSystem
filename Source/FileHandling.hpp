@@ -113,7 +113,7 @@ void writeToFile(Member *member)
 
 void printAll(string path)
 {
-    system("clear");
+    system("cls");
     ifstream all(path + "All.txt");
     string line;
     while (!all.eof())
