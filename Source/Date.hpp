@@ -28,6 +28,50 @@ public:
             _day = 1;
         }
     }
+
+    void setDateFromString(string date)
+    {
+        string day , month, year;
+        bool bday = true, bmonth=false, byear=false;
+        day = month = year = "";
+        for (int i = 0; i < date.length(); i++)
+        {
+            if (bday)
+            {
+                if(date[i] != '.')
+                    day += date[i];
+                else
+                {
+                    bday=false; 
+                    bmonth=true;
+                    continue;
+                }                
+            }
+
+            if (bmonth)
+            {
+                if(date[i] != '.')
+                    month += date[i];
+                else
+                {
+                    bmonth=false;
+                    byear = true;
+                    continue;
+                }                
+            }
+
+            if (byear)
+            {
+                year += date[i];               
+            }
+        }
+
+        this->_day = std::atoi(day.c_str());
+        this->_month = std::atoi(month.c_str());
+        this->_year = std::atoi(year.c_str());        
+        
+    }
+
     bool isleap(int year)  //Determine if it is a leap year
     {
         if ((0 == year % 4 && 0 != year % 100) || (year % 400 == 0))

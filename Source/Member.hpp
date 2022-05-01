@@ -31,7 +31,7 @@ public:
     {
         this->name = name;
     }
-    void setSurname(string surnname) 
+    void setSurname(string surname) 
     {
         this->surname = surname;
     }

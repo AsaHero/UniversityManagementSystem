@@ -4,7 +4,6 @@ int main() {
     Run();
 
 
-
-    // system("cls");
+    // system("clear");
     return 0;
 }

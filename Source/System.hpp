@@ -32,22 +32,22 @@ void StudentData(int option)
     case 1:
         student = new Freshman(name, surname, birthday, ID, dateOfAddmission);
         writeToFile(student);
-        system("pause");
+        cin.get();
     break;
     case 2:
         student = new Sophomore(name, surname, birthday, ID, dateOfAddmission);
         writeToFile(student);
-        system("pause");
+        cin.get();
     break;
     case 3:
         student = new Junior(name, surname, birthday, ID, dateOfAddmission);
         writeToFile(student);
-        system("pause");
+        cin.get();
     break;
     case 4:
         student = new Senior(name, surname, birthday, ID, dateOfAddmission);
         writeToFile(student);
-        system("pause");
+        cin.get();
     break;    
     }
 
@@ -87,22 +87,362 @@ void allStudents()
 {
     getAllStudents();
 }
+
+void updateStudentInfo(Member *student)
+{
+    string name, surname, new_ID, old_ID;
+    Date date;
+    string year, month, day;
+    int option;
+    cout << "What you want to change:" << endl;
+    cout << "1. Name\n2. Surname\n3. ID\n4. Date of birth\n5. Date of addmission\n" << endl;
+    cout << "Enter your option: ";
+    cin >> option;
+
+    if (typeid(*student).name() == typeid(Freshman).name())
+    {
+        Freshman *st = static_cast<Freshman*>(student);
+        old_ID = st->getID();
+        switch (option)
+        {
+        case 1:
+            cout << "Enter the name of student: ";
+            cin >> name;
+            st->setName(name);
+        break;
+        case 2:
+            cout << "Enter the surname of student: ";
+            cin >> surname;
+            st->setSurname(surname);
+        break;
+        case 3:
+
+            cout << "Enter the ID of student: ";
+            cin >> new_ID;
+            st->setID(new_ID);    
+        break;
+        case 4:
+            cout << "Enter the birthday of student: " << endl;
+            cout << "Year: "; cin >> year;
+            cout << "Month: "; cin >> month;
+            cout << "Day: "; cin >> day;
+            date.setDateFromString(day + "." + month + "." + year);
+            st->setBirthday(date);
+        break;
+        case 5:
+            cout << "Enter the date of addmission:" << endl;
+            cout << "Year: "; cin >> year;
+            cout << "Month: "; cin >> month;
+            cout << "Day: "; cin >> day;
+            date.setDateFromString(day + "." + month + "." + year);
+            st->setDateOfAddnission(date);
+        break;                                
+        }
+
+        deleteByID(old_ID);
+        writeToFile(st);
+    }
+    else if(typeid(*student).name() == typeid(Sophomore).name())
+    {
+        Sophomore *st = static_cast<Sophomore*>(student);
+        old_ID = st->getID();
+        switch (option)
+        {
+        case 1:
+            cout << "Enter the name of student: ";
+            cin >> name;
+            st->setName(name);
+        break;
+        case 2:
+            cout << "Enter the surname of student: ";
+            cin >> surname;
+            st->setSurname(surname);
+        break;
+        case 3:
+
+            cout << "Enter the ID of student: ";
+            cin >> new_ID;
+            st->setID(new_ID);    
+        break;
+        case 4:
+            cout << "Enter the birthday of student: " << endl;
+            cout << "Year: "; cin >> year;
+            cout << "Month: "; cin >> month;
+            cout << "Day: "; cin >> day;
+            date.setDateFromString(day + "." + month + "." + year);
+            st->setBirthday(date);
+        break;
+        case 5:
+            cout << "Enter the date of addmission:" << endl;
+            cout << "Year: "; cin >> year;
+            cout << "Month: "; cin >> month;
+            cout << "Day: "; cin >> day;
+            date.setDateFromString(day + "." + month + "." + year);
+            st->setDateOfAddnission(date);
+        break;                                
+        }
+
+        deleteByID(old_ID);
+        writeToFile(st);        
+    }
+    else if(typeid(*student).name() == typeid(Junior).name())
+    {
+        Junior *st = static_cast<Junior*>(student);
+        old_ID = st->getID();
+        switch (option)
+        {
+        case 1:
+            cout << "Enter the name of student: ";
+            cin >> name;
+            st->setName(name);
+        break;
+        case 2:
+            cout << "Enter the surname of student: ";
+            cin >> surname;
+            st->setSurname(surname);
+        break;
+        case 3:
+
+            cout << "Enter the ID of student: ";
+            cin >> new_ID;
+            st->setID(new_ID);    
+        break;
+        case 4:
+            cout << "Enter the birthday of student: " << endl;
+            cout << "Year: "; cin >> year;
+            cout << "Month: "; cin >> month;
+            cout << "Day: "; cin >> day;
+            date.setDateFromString(day + "." + month + "." + year);
+            st->setBirthday(date);
+        break;
+        case 5:
+            cout << "Enter the date of addmission:" << endl;
+            cout << "Year: "; cin >> year;
+            cout << "Month: "; cin >> month;
+            cout << "Day: "; cin >> day;
+            date.setDateFromString(day + "." + month + "." + year);
+            st->setDateOfAddnission(date);
+        break;                                
+        }
+
+        deleteByID(old_ID);
+        writeToFile(st);        
+    }
+    else if(typeid(*student).name() == typeid(Senior).name())
+    {
+        Senior *st = static_cast<Senior*>(student);
+        old_ID = st->getID();
+        switch (option)
+        {
+        case 1:
+            cout << "Enter the name of student: ";
+            cin >> name;
+            st->setName(name);
+        break;
+        case 2:
+            cout << "Enter the surname of student: ";
+            cin >> surname;
+            st->setSurname(surname);
+        break;
+        case 3:
+
+            cout << "Enter the ID of student: ";
+            cin >> new_ID;
+            st->setID(new_ID);    
+        break;
+        case 4:
+            cout << "Enter the birthday of student: " << endl;
+            cout << "Year: "; cin >> year;
+            cout << "Month: "; cin >> month;
+            cout << "Day: "; cin >> day;
+            date.setDateFromString(day + "." + month + "." + year);
+            st->setBirthday(date);
+        break;
+        case 5:
+            cout << "Enter the date of addmission:" << endl;
+            cout << "Year: "; cin >> year;
+            cout << "Month: "; cin >> month;
+            cout << "Day: "; cin >> day;
+            date.setDateFromString(day + "." + month + "." + year);
+            st->setDateOfAddnission(date);
+        break;                                
+        }
+
+        deleteByID(old_ID);
+        writeToFile(st);        
+    }
+    
+
+}
+
 void updateStudent()
 {
-    //updateMember();
+    string ID;
+    cout << "Enter the ID of student: ";
+    cin >> ID;
+    Member *res = findByID(ID);
+
+        if (res != nullptr)
+        {
+            cout << "\n///// Found /////\n" << endl;
+            if (typeid(*res).name() == typeid(Freshman).name())
+            {
+                cout << "This is Freshman" << endl;
+                Freshman *st = static_cast<Freshman*>(res);
+                cout << "Name: " << st->getName() << endl;
+                cout << "Surname: " << st->getSurname() << endl;
+                cout << "ID: " << st->getID() << endl;
+                cout << "Date of birthday: " << st->getBirthday() << endl;
+                cout << "Date of addmission: " << st->getDateOfAddmission() << endl;
+                cout << "Subjects: \n" << endl;
+                for (int i = 0; i < FreshmanSub::Count; i++)
+                {
+                    cout << st->getSubject()[i] << endl;
+                }
+                updateStudentInfo(st);
+
+            }
+            else if (typeid(*res).name() == typeid(Sophomore).name())
+            {
+                cout << "This is Sophomore" << endl;
+                Sophomore *st = static_cast<Sophomore*>(res);
+                cout << "Name: " << st->getName() << endl;
+                cout << "Surname: " << st->getSurname() << endl;
+                cout << "ID: " << st->getID() << endl;
+                cout << "Date of birthday" << st->getBirthday() << endl;
+                cout << "Date of addmission: " << st->getDateOfAddmission() << endl;
+                cout << "Subjects: \n" << endl;
+                for (int i = 0; i < SophomoreSub::Count; i++)
+                {
+                    cout << st->getSubject()[i] << endl;
+                }
+                updateStudentInfo(st);                
+            }
+            else if (typeid(*res).name() == typeid(Junior).name())
+            {
+                cout << "This is Junior" << endl;
+                Junior *st = static_cast<Junior*>(res);
+                cout << "Name: " << st->getName() << endl;
+                cout << "Surname: " << st->getSurname() << endl;
+                cout << "ID: " << st->getID() << endl;
+                cout << "Date of birthday" << st->getBirthday() << endl;
+                cout << "Date of addmission: " << st->getDateOfAddmission() << endl;
+                cout << "Subjects: \n" << endl;
+                for (int i = 0; i < JuniorSub::Count; i++)
+                {
+                    cout << st->getSubject()[i] << endl;
+                }
+                updateStudentInfo(st);
+            }
+            else if (typeid(*res).name() == typeid(Senior).name())
+            {
+                cout << "This is Senior" << endl;
+                Senior *st = static_cast<Senior*>(res);
+                cout << "Name: " << st->getName() << endl;
+                cout << "Surname: " << st->getSurname() << endl;
+                cout << "ID: " << st->getID() << endl;
+                cout << "Date of birthday" << st->getBirthday() << endl;
+                cout << "Date of addmission: " << st->getDateOfAddmission() << endl;
+                cout << "Subjects: \n" << endl;
+                for (int i = 0; i < SeniorSub::Count; i++)
+                {
+                    cout << st->getSubject()[i] << endl;
+                } 
+                updateStudentInfo(st);               
+            }
+        }
+        else
+        {
+            cout << "\nNot Found ! :(\n" << endl;
+        }
 }
 void findStudent()
 {
-    //findByID();
+    string ID;
+    cout << "Enter the ID of student: ";
+    cin >> ID;
+    Member *res = findByID(ID);
+
+        if (res != nullptr)
+        {
+            cout << "\n///// Found /////\n" << endl;
+            if (typeid(*res).name() == typeid(Freshman).name())
+            {
+                cout << "This is Freshman" << endl;
+                Freshman *st = static_cast<Freshman*>(res);
+                cout << "Name: " << st->getName() << endl;
+                cout << "Surname: " << st->getSurname() << endl;
+                cout << "ID: " << st->getID() << endl;
+                cout << "Date of birthday: " << st->getBirthday() << endl;
+                cout << "Date of addmission: " << st->getDateOfAddmission() << endl;
+                cout << "Subjects: \n" << endl;
+                for (int i = 0; i < FreshmanSub::Count; i++)
+                {
+                    cout << st->getSubject()[i] << endl;
+                }
+            }
+            else if (typeid(*res).name() == typeid(Sophomore).name())
+            {
+                cout << "This is Sophomore" << endl;
+                Sophomore *st = static_cast<Sophomore*>(res);
+                cout << "Name: " << st->getName() << endl;
+                cout << "Surname: " << st->getSurname() << endl;
+                cout << "ID: " << st->getID() << endl;
+                cout << "Date of birthday" << st->getBirthday() << endl;
+                cout << "Date of addmission: " << st->getDateOfAddmission() << endl;
+                cout << "Subjects: \n" << endl;
+                for (int i = 0; i < SophomoreSub::Count; i++)
+                {
+                    cout << st->getSubject()[i] << endl;
+                }
+            }
+            else if (typeid(*res).name() == typeid(Junior).name())
+            {
+                cout << "This is Junior" << endl;
+                Junior *st = static_cast<Junior*>(res);
+                cout << "Name: " << st->getName() << endl;
+                cout << "Surname: " << st->getSurname() << endl;
+                cout << "ID: " << st->getID() << endl;
+                cout << "Date of birthday" << st->getBirthday() << endl;
+                cout << "Date of addmission: " << st->getDateOfAddmission() << endl;
+                cout << "Subjects: \n" << endl;
+                for (int i = 0; i < JuniorSub::Count; i++)
+                {
+                    cout << st->getSubject()[i] << endl;
+                }
+            }
+            else if (typeid(*res).name() == typeid(Senior).name())
+            {
+                cout << "This is Senior" << endl;
+                Senior *st = static_cast<Senior*>(res);
+                cout << "Name: " << st->getName() << endl;
+                cout << "Surname: " << st->getSurname() << endl;
+                cout << "ID: " << st->getID() << endl;
+                cout << "Date of birthday" << st->getBirthday() << endl;
+                cout << "Date of addmission: " << st->getDateOfAddmission() << endl;
+                cout << "Subjects: \n" << endl;
+                for (int i = 0; i < SeniorSub::Count; i++)
+                {
+                    cout << st->getSubject()[i] << endl;
+                }                
+            }
+        }
+        else
+        {
+            cout << "\nNot Found ! :(\n" << endl;
+        }
 }
 void deleteStudent()
 {
-    //deleteByID();
+    string ID;
+    cout << "Enter the ID of student you want to delete:";
+    cin >> ID;
+    deleteByID(ID);
 }
 
 void createProf()
 {
-    Member *prof;
+    Professor *prof;
     string name, surname, ID;
     int year, month, day;
 
@@ -117,7 +457,23 @@ void createProf()
     cout << "Month: "; cin >> month;
     cout << "Day: "; cin >> day;
     Date birthday(year, month, day);
+
     prof = new Professor(name, surname, birthday, ID);
+    string answer;
+    do
+    {
+        system("clear");
+        cout << "Select proffesor's subject:" << endl;
+        prof->setSubject();
+        do
+        {
+            cout << "Do you want to select one more subject[yes(y)|no(n)]: ";
+            cin >> answer;
+        } while(answer != "yes" && answer != "y" && answer != "no" && answer != "n");
+
+    } while(answer == "yes" || answer == "y");
+    
+
     writeToFile(prof);
 
 }
@@ -127,16 +483,117 @@ void allProfs()
 }
 void updateProf()
 {
-    //updateMember();
+    string ID;
+    cout << "Enter the ID of professor: ";
+    cin >> ID;
+    Member *res = findByID(ID);
+    if (res != nullptr)
+    {
+        Professor *prof = dynamic_cast<Professor*>(res);
+        cout << "\n///// Found /////\n" << endl;
+        cout << "Name: " << prof->getName() << endl;
+        cout << "Surname: " << prof->getSurname() << endl;
+        cout << "ID: " << prof->getID() << endl;
+        cout << "Date of birthday: " << prof->getBirthday() << endl;
+        cout << "Subjects taught: \n" << endl;
+        for (int i = 0; i < prof->getSubjects().size(); i++)
+        {
+            cout << prof->getSubjects()[i] << endl;
+        }
+
+        string name, surname, answer, new_ID;
+        Date birthday;
+        string year, month, day;
+        int option;
+        cout << "What you want to change:" << endl;
+        cout << "1. Name\n2. Surname\n3. ID\n4. Date of birth\n5. Subjects taught\n" << endl;
+        cout << "Enter your option: ";
+        cin >> option;
+
+        switch (option)
+        {
+        case 1:
+            cout << "Enter the name of professor: ";
+            cin >> name;
+            prof->setName(name);
+        break;
+        case 2:
+            cout << "Enter the surname of professor: ";
+            cin >> surname;
+            prof->setSurname(surname);
+        break;
+        case 3:
+            cout << "Enter the ID of professor: ";
+            cin >> new_ID;
+            prof->setID(new_ID);
+        break;                
+        case 4:
+            cout << "Enter the birthday of professor: " << endl;
+            cout << "Year: "; cin >> year;
+            cout << "Month: "; cin >> month;
+            cout << "Day: "; cin >> day;
+            birthday.setDateFromString(day + "." + month + "." + year);
+            prof->setBirthday(birthday);
+        break;        
+        case 5:
+            prof->resetSubject();
+            do
+            {
+                system("clear");
+                cout << "Select proffesor's subject:" << endl;
+                prof->setSubject();
+                do
+                {
+                    cout << "Do you want to select one more subject[yes(y)|no(n)]: ";
+                    cin >> answer;
+                } while(answer != "yes" && answer != "y" && answer != "no" && answer != "n");
+            } while(answer == "yes" || answer == "y");
+        break;
+        }
+
+        deleteByID(ID);
+        writeToFile(prof);
+
+    }else
+    {
+        cout << "\nNot Found ! :(\n" << endl;
+    }
+    
 
 }
 void findProf()
 {
-    //findByID();
+    string ID;
+    cout << "Enter the ID of professor: ";
+    cin >> ID;
+    Member *res = findByID(ID);
+    if (res != nullptr)
+    {
+        Professor *prof = dynamic_cast<Professor*>(res);
+        cout << "\n///// Found /////\n" << endl;
+        cout << "Name: " << prof->getName() << endl;
+        cout << "Surname: " << prof->getSurname() << endl;
+        cout << "ID: " << prof->getID() << endl;
+        cout << "Date of birthday: " << prof->getBirthday() << endl;
+        cout << "Subjects taught: \n" << endl;
+        for (int i = 0; i < prof->getSubjects().size(); i++)
+        {
+            cout << prof->getSubjects()[i] << endl;
+        }
+        
+    }else
+    {
+        cout << "\nNot Found ! :(\n" << endl;
+    }
+    
+    
 }
 void deleteProf()
 {
-    //deleteByID();
+    string ID;
+    cout << " Enter the ID of professor you want to delete:";
+    cin >> ID;
+    deleteByID(ID);
 }
 
 
@@ -183,7 +640,7 @@ int ChooseMenu()
         cout << "\nEnter your option: ";
         cin >> option;
 
-        system("cls");
+        system("clear");
 
     }while(option != 1 && option != 2 && option != 0);
 
@@ -195,7 +652,7 @@ void ProfessorMainMenu()
   int option;
     do
     {
-        system("cls");          
+        system("clear");          
         UMS();
     
         cout << "\n1. Adding new records.\n"
@@ -204,6 +661,46 @@ void ProfessorMainMenu()
                 "4. Searching records.\n"
                 "5. Deleting records.\n"
                 "0. Exit\n" << endl;
+        cout << "Enter you option:";
+        cin >> option;
+
+        switch (option)
+        {
+        case 1:
+            createProf();
+        break;
+        case 2:
+            allProfs();
+        break;
+        case 3:
+            updateProf();
+        break;
+        case 4:
+            findProf();
+            
+        break;
+        case 5:
+            deleteProf();
+        break;
+        }
+      
+    
+    } while (option != 0);             
+}
+
+void StudentMainMenu()
+{
+    int option;
+    do
+    {
+        system("clear"); 
+        UMS(); 
+        cout << "\n1. Adding new records.\n"
+            "2. List of records.\n"
+            "3. Modifying records.\n"
+            "4. Searching records.\n"
+            "5. Deleting records.\n"
+            "0. Exit\n" << endl;
         cout << "Enter you option:";
         cin >> option;
 
@@ -224,45 +721,6 @@ void ProfessorMainMenu()
         case 5:
             deleteStudent();
         break;
-        }
-      
-    
-    } while (option != 0);             
-}
-
-void StudentMainMenu()
-{
-    int option;
-    do
-    {
-        system("cls"); 
-        UMS(); 
-        cout << "\n1. Adding new records.\n"
-            "2. List of records.\n"
-            "3. Modifying records.\n"
-            "4. Searching records.\n"
-            "5. Deleting records.\n"
-            "0. Exit\n" << endl;
-        cout << "Enter you option:";
-        cin >> option;
-
-        switch (option)
-        {
-        case 1:
-            createProf();
-        break;
-        case 2:
-            allProfs();
-        break;
-        case 3:
-            updateProf();
-        break;
-        case 4:
-            findProf();
-        break;
-        case 5:
-            deleteProf();
-        break;
         }    
     
     } while (option != 0);    
@@ -276,18 +734,17 @@ void Run()
     int option = ChooseMenu();
     while(option != 0)
     {
-        system("cls");          
+        system("clear");          
         switch (option)
         {
         case 1:
-            StudentMainMenu();
-            
+            ProfessorMainMenu();            
         break;
         case 2:
-            ProfessorMainMenu();
+            StudentMainMenu();
         break;
         };
-        system("cls");
+        system("clear");
         option = ChooseMenu();
     }   
 }

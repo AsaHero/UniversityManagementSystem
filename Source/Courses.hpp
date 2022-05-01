@@ -33,8 +33,6 @@ public:
 
 class Sophomore: public Student
 {
-private:
-    string* subjects;
 public:
     Sophomore()
     {
@@ -71,8 +69,6 @@ public:
 
 class Junior: public Student
 {
-private:
-    string* subjects;
 public:
     Junior()
     {
@@ -104,8 +100,6 @@ public:
 
 class Senior: public Student
 {
-private:
-    string* subjects;
 public:
     Senior()
     {

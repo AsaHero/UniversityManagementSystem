@@ -34,13 +34,12 @@ class Professor: public Member
 {
 private:
     string ID;
-    string *subjects;
+    std::vector<std::string> subjects;
 public:
 
     Professor()
     {
         ID = "";
-        subjects = nullptr;
     }
     Professor(string name, string surname, Date birthday, string ID):Member(name, surname, birthday)
     {
@@ -49,7 +48,6 @@ public:
 
     ~Professor()
     {
-        delete[] subjects;
     }
     string getID()
     {
@@ -59,9 +57,9 @@ public:
     {
         this->ID = ID;
     }
-    string* getSubjects()
+    std::vector<std::string> getSubjects()
     {
-        return this->subjects;
+        return subjects;
     }
 
     void setSubject()
@@ -74,25 +72,26 @@ public:
         int id;
         cout << "Enter the id of subject: ";
         cin >> id;
+        subjects.push_back(all_subjects[id]);
+    }
 
-        if (subjects != nullptr)
+    void setSubjectWithString(string subject)
+    {
+        for (int i = 0; i < 25; i++)
         {
-            int length = subjects->length();                    
-            string* temp = new string[length+1];
-            for (size_t i = 0; i < length; i++)
+            if (subject == all_subjects[i])
             {
-                temp[i] = subjects[i];
+                subjects.push_back(all_subjects[i]);
+                break;
             }
-            temp[length] = all_subjects[id];
-            delete[] subjects;
-            subjects = temp;
-            temp = nullptr;
-            delete[] temp;
-        } 
-        else
-        {
-            subjects = new string(all_subjects[id]);
+            
         }
+        
+    }
+
+    void resetSubject()
+    {
+        subjects.clear();
     }
 
 };
